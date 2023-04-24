@@ -42,6 +42,14 @@ public class ViewsResource {
     }
 
     @GET
+    @Path("/google/{page}.html")
+    @Pac4JSecurity(clients = "Google2Client", matchers = "excludedGooglePath")
+    public View googleProtected(
+        @Pac4JProfileManager ProfileManager<CommonProfile> pm) {
+        return new ProfilesView(pm);
+    }
+
+    @GET
     @Path("/saml2/index.html")
     @Pac4JSecurity(clients = "SAML2Client")
     public View saml2(@Pac4JProfileManager ProfileManager<CommonProfile> pm) {

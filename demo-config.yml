@@ -13,6 +13,8 @@ pac4j:
   clientsProperties:
     facebook.id: 145278422258960
     facebook.secret: be21409ba8f39b5dae2a7de525484da8
+    google.id: 145278422258960
+    google.secret: be21409ba8f39b5dae2a7de525484da8
     saml.keystorePath: resource:samlKeystore.jks
     saml.keystorePassword: pac4j-demo-passwd
     saml.privateKeyPassword: pac4j-demo-passwd
@@ -58,6 +60,10 @@ pac4j:
       class: org.pac4j.core.matching.matcher.PathMatcher
       excludedPaths:
         - /facebook/notprotected.html
+    excludedGooglePath:
+      class: org.pac4j.core.matching.matcher.PathMatcher
+      excludedPaths:
+        - /google/notprotected.html
 
 logging:
   level: INFO
